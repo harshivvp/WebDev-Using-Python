@@ -1,0 +1,14 @@
+body
+{
+	background: white url("images/django-bg.jpg")
+}
+
+.navbar
+{
+    border-radius:0;
+}
+
+.navbar-brand
+{
+    font-family:'Montserrat', cursive;
+}

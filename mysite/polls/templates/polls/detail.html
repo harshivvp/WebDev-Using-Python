@@ -1,0 +1,42 @@
+{% extends 'polls/base.html' %}
+{% block title %}{{ albums }}{% endblock %}
+
+{% block body %}
+<img src="http://pictureofacat.com/cat.jpg" height="200" width="300">
+
+
+<!--
+<h1>Album Title : {{ albums.title }}</h1>
+<h3>Album Artist : {{ albums.artist }}</h3>
+
+
+    {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'polls:detail' albums.id %}" method="post">
+
+    {% csrf_token %}
+    {% for songs in albums.songs_set.all %}
+        <input type="radio" id="songs{{ forloop.counter }}" name="songs" value="{{ songs.id }}"/>
+        <label for="songs{{ forloop.counter }}">
+        {{ songs.song_title }}
+        {% if songs.is_fav %}
+            <img src="http://i.imgur.com/b9b13Rd.png"/>
+        {% endif %}
+        </label></br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>-->
+
+<div class="container-fluid songs-container">
+
+</div>
+
+{% endblock %}
+
+<!--<ul>-->
+    <!--{% for songs in albums.songs_set.all %}-->
+    <!--<li>{{ songs.song_title }} - {{ songs.file_type }}</li>-->
+    <!--{% endfor %}-->
+<!--</ul>-->

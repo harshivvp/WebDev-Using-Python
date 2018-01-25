@@ -1,0 +1,10 @@
+{% extends 'polls/base.html' %}
+
+{% block body %}
+<ul>
+    {% for albums in object_list %}
+    <li><a href="{% url 'polls:detail' albums.id %}">{{ albums.title }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
