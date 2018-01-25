@@ -36,7 +36,7 @@
             <ul class="nav navbar-nav">
                 <li class="">
                     <!--<a href="{% url 'polls:index' %}"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;Albums</a>-->
-                    <a href="#"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;Albums</a>
+                    <a href="{% url 'polls:index' %}"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>&nbsp;Albums</a>
                 </li>
                 <li>
                     <!--<a href="{% url 'polls:index' %}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Songs</a>-->
@@ -53,7 +53,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                    <a href="#">
+                    <a href="{% url 'polls:albums-add' %}">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add Album
                     </a>
                 </li>
