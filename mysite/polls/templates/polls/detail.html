@@ -2,18 +2,8 @@
 {% block title %}{{ albums }}{% endblock %}
 
 {% block body %}
-<img src="http://pictureofacat.com/cat.jpg" height="200" width="300">
-
 
 <!--
-<h1>Album Title : {{ albums.title }}</h1>
-<h3>Album Artist : {{ albums.artist }}</h3>
-
-
-    {% if error_message %}
-    <p><strong>{{ error_message }}</strong></p>
-{% endif %}
-
 <form action="{% url 'polls:detail' albums.id %}" method="post">
 
     {% csrf_token %}
@@ -30,13 +20,71 @@
 </form>-->
 
 <div class="container-fluid songs-container">
+        <!--Left Album Info-->
+        <div class="col-sm-4 col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'polls:detail' albums.id %}">
+                        {% if albums.album_logo %}
+                        <img src="{{ albums.album_logo }}" class="img-responsive">
+                        {% else %}
+                        <h3>No Image To Display</h3>
+                        {% endif %}
+                    </a>
+                    <h3 class="album-font">Album : {{ albums.title }}<br>By : {{ albums.artist }}<br> Genre : {{ albums.genre }}</h3>
+                </div>
+            </div>
+        </div>
+
+    <div class="col-sm-8 col-md-9">
+        <ul class="nav nav-pills" style="margin-bottom: 10px;">
+            <li role="presentation" class=""><a href="{% url 'polls:detail' albums.id %}">View All</a></li>
+            <li role="presentation"><a href="#">Add New Song</a></li>
+        </ul>
+        <div class="panel panel-heading">
+            <div class="panel-default">
+                <h3>All Songs</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Audio File</th>
+                            <th>Favorite</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for song in albums.songs_set.all %}
+                        <tr>
+                            <td>{{ songs.title}}</td>
+                            <td>
+                                <a target="_blank" href="{{ songs.audio_file.url }}">
+                                    <button type="button" class="btn btn-success btn-xs">
+                                        <span class="glyphicon glyphicon-play"></span>&nbsp;Play
+                                    </button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#" class="btn-favourite"><span class="glyphicon glyphicon-star {% if songs.is_fav %}active{% endif %}"></span></a>
+                            </td>
+                            <td>
+                                <form action="#" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="songs_id" value="{{ songs.id }}"/>
+                                    <button type="submit" class="btn btn-danger btn-xs"><span>&nbsp;Delete</span></button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 </div>
 
 {% endblock %}
-
-<!--<ul>-->
-    <!--{% for songs in albums.songs_set.all %}-->
-    <!--<li>{{ songs.song_title }} - {{ songs.file_type }}</li>-->
-    <!--{% endfor %}-->
-<!--</ul>-->
