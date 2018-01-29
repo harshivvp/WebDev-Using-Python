@@ -32,23 +32,23 @@
                         {% endif %}
                     </a>
                     <h3 class="album-font">Album : {{ albums.title }}<br>By : {{ albums.artist }}<br> Genre : {{ albums.genre }}</h3>
-                    <a href="{% url 'polls:albums-upd' albums.id %}" class="btn btn-info btn-block" ><span>&nbsp;Update</span></a>
+                    <a href="{% url 'polls:albums-upd' albums.id %}" class="btn btn-dark btn-block" ><span>&nbsp;Update</span></a>
                 </div>
             </div>
         </div>
 
     <div class="col-sm-8 col-md-9">
         <ul class="nav nav-pills" style="margin-bottom: 10px;">
-            <li role="presentation" class=""><a href="{% url 'polls:detail' albums.id %}">View All</a></li>
-            <li role="presentation"><a href="#">Add New Song</a></li>
+            <a class="btn btn-dark" href="{% url 'polls:detail' albums.id %}">View All</a></li>
+            <a class="btn btn-dark" href="#">Add New Song</a></li>
         </ul>
         <div class="panel panel-heading">
             <div class="panel-default">
-                <h3>All Songs</h3>
+                <h3 style="font-family:'Montserrat'">All Songs</h3>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
-                <table class="table">
+                <table class="table table-condensed">
                     <thead>
                         <tr>
                             <th>Title</th>
@@ -63,7 +63,7 @@
                             <td>{{ songs.title}}</td>
                             <td>
                                 <a target="_blank" href="{{ songs.audio_file.url }}">
-                                    <button type="button" class="btn btn-success btn-xs">
+                                    <button type="button" class="btn btn-dark btn-xs">
                                         <span class="glyphicon glyphicon-play"></span>&nbsp;Play
                                     </button>
                                 </a>
@@ -75,7 +75,7 @@
                                 <form action="#" method="post" style="display:inline;">
                                     {% csrf_token %}
                                     <input type="hidden" name="songs_id" value="{{ songs.id }}"/>
-                                    <button type="submit" class="btn btn-danger btn-xs"><span>&nbsp;Delete</span></button>
+                                    <button type="submit" class="btn btn-dark btn-xs"><span>&nbsp;Delete</span></button>
                                 </form>
                             </td>
                         </tr>
