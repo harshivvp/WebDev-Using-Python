@@ -9,4 +9,5 @@ urlpatterns = [
     path('albums/add/$', views.AlbumCreate.as_view(), name='albums-add'),
     path('albums/<int:pk>/$', views.AlbumUpdate.as_view(), name='albums-upd'),
     path('albums/<int:pk>/delete/$', views.AlbumDelete.as_view(), name='albums-del'),
+    path('<int:pk>',views.search_titles,name='search_titles'),
 ]

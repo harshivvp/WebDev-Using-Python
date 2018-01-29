@@ -15,7 +15,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script src="{% static 'music/js/main.js' %}"></script>
+    <script src="{% static 'music/js/ajax.js' %}"></script>
+
 </head>
 
 <body>
@@ -44,11 +47,18 @@
                 </li>
             </ul>
 
-            <form class="navbar-form navbar-left" role="search" method="get" action="#">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="q" value="">
-                </div>
-                <button type="submit" class="btn btn-dark">Search</button>
+            <form class="navbar-form navbar-left" role="search" method="get">
+                {% csrf_token %}
+
+                <input type="text" id="search" name="search"/>
+                <ul id="search-results">
+
+                </ul>
+
+                <!--<div class="form-group">-->
+                    <!--<input type="text" class="form-control" name="search" id="search" value="">-->
+                <!--</div>-->
+                <!--<button type="submit" class="btn btn-dark">Search</button>-->
             </form>
 
             <ul class="nav navbar-nav navbar-right">

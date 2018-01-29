@@ -5,7 +5,6 @@
 
 <!--
 <form action="{% url 'polls:detail' albums.id %}" method="post">
-
     {% csrf_token %}
     {% for songs in albums.songs_set.all %}
         <input type="radio" id="songs{{ forloop.counter }}" name="songs" value="{{ songs.id }}"/>

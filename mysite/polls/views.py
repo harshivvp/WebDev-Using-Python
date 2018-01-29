@@ -2,7 +2,7 @@ from django.views import generic
 from .models import Albums
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
@@ -75,3 +75,13 @@ class UserFormView(View):
 
         #If they didnt login. or account is disabled or banned.
         return render(request, self.template_name, {'form': form})
+
+def search_titles(request):
+
+    if request.method == "POST":
+        search_text = request.POST['search_text']
+    else:
+        search_text = ''
+
+    albums = Albums.objects.filter(title__contains=search_text)
+    return render_to_response('ajax_search.html',{'albums':albums})
