@@ -1,0 +1,52 @@
+body
+{
+	background: white url("images/bg-abstract.jpeg")
+}
+
+.navbar
+{
+    border-radius:0;
+}
+
+.navbar-brand
+{
+    font-family:'Montserrat', cursive;
+}
+
+.album-font
+{
+    font-family:'Montserrat';
+}
+
+.btn-dark
+{
+    outline: 0;
+    padding: 5px 12px;
+    color: #9fa8b0;
+    font-weight: bold;
+    text-shadow: 1px 1px #1f272b;
+    border: 1px solid #1c252b;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    font-family: 'Montserrat', sans-serif; font-weight:400;
+    -webkit-border-radius: 3px;
+    background: #333; /* old browsers */
+    background: -moz-linear-gradient(top, #3D4850 3%, #333 4%, #333 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#3000000), color-stop(4%,#313d45), color-stop(100%,#232B30)); /* webkit */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#151c1b', endColorstr='#151c1b',GradientType=0 ); /* ie */
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* CSS3 */
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Firefox */
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.2); /* Safari, Chrome */
+}
+
+.btn:hover
+{
+    color: white;
+}
+
+.btn:focus {
+    color:#fff;
+    background: #333; /* old browsers */
+    background: -moz-linear-gradient(top, #3D4850 3%, #333 4%, #333 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#3000000), color-stop(4%,#313d45), color-stop(100%,#232B30)); /* webkit */
+ }
