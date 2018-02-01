@@ -22,8 +22,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls')),
     path('demsite/', include('demsite.urls')),
+    path('music/', include('music.urls')),
+    path('music_gcb/', include('music_gcb.urls')),
+
 ]
 
 if settings.DEBUG:

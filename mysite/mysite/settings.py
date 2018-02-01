@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls',
     'demsite',
     'debug_toolbar',
+    'music_gcb',
+    'music',
 ]
 
 MIDDLEWARE = [
@@ -136,4 +137,4 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': 'mysite.settings.show_toolbar',
 }
 
-INTERNAL_IPS = ['127.0.0.1',]
+INTERNAL_IPS = ['127.0.0.1',] # This is localhost/home IP.
