@@ -14,4 +14,8 @@ urlpatterns = [
 
     #/demsite/5/vote/
     path('<int:question_id>/vote/',views.vote, name='vote'),
-    ]
+
+    # /demsite/home/
+    path('home/', views.BaseTemplate.as_view(), name='home'),
+
+]

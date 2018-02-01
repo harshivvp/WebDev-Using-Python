@@ -24,7 +24,7 @@ class DetailView(generic.DetailView):
 
 class AlbumDelete(DeleteView):
     model = Album
-    success_url = reverse_lazy('polls:index')
+    success_url = reverse_lazy('music_gcb/index.html')
 
 
 
@@ -104,7 +104,7 @@ def delete_song(request, album_id, song_id):
 
 
 def detail(request, album_id):
-    if not request    .user.is_authenticated:
+    if not request.user.is_authenticated:
         return render(request, 'music_gcb/login.html')
     else:
         user = request.user

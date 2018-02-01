@@ -27,6 +27,16 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = 'demsite/results.html'
 
+
+class BaseTemplate(generic.TemplateView):
+
+    template_name = 'demsite/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(BaseTemplate,self).get_context_data(**kwargs)
+        context["title"] = "this is the title of the context"
+        return context
+
 def vote(request,question_id):
 
     question = get_object_or_404(Question,pk=question_id)

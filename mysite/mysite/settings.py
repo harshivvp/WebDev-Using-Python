@@ -41,6 +41,11 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'music_gcb',
     'music',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +143,12 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 INTERNAL_IPS = ['127.0.0.1',] # This is localhost/home IP.
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
