@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Album(models.Model):
@@ -18,6 +19,9 @@ class Song(models.Model):
     song_title = models.CharField(max_length=250)
     audio_file = models.FileField(default='')
     is_favorite = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        return reverse('music_gcb:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.song_title

@@ -60,19 +60,18 @@
                                 <a href="{% url 'music_gcb:favorite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>
                             </td>
                             <td>
-                                <form action="{% url 'music_gcb:delete_song' album.id song.id %}" method="post" style="display: inline;">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="song_id" value="{{ song.id }}" />
-                                    <button type="submit" class="btn btn-danger btn-xs">
-                                        <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
-                                    </button>
-                                </form>
+                                <!--<form action="{% url 'music_gcb:delete_song' album.song.id %}" method="post" style="display: inline;">-->
+                                    <!--{% csrf_token %}-->
+                                    <!--<input type="hidden" name="song_id" value="{{ song.id }}" />-->
+                                    <!--<button type="submit" class="btn btn-danger btn-xs">-->
+                                        <!--<span class="glyphicon glyphicon-remove"></span>&nbsp; Delete-->
+                                    <!--</button>-->
+                                <!--</form>-->
                             </td>
                         </tr>
                         {% endfor %}
                         </tbody>
                     </table>
-
                 </div>
             </div>
 

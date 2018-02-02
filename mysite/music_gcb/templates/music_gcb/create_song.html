@@ -29,25 +29,28 @@
             <div class="panel panel-default">
                 <div class="panel-body" >
                     <div class="album-font">
-                    <a class="btn btn-dark hvr-underline-reveal" href="{% url 'music_gcb:detail' album.id %}">View All</a>
-                    <a class="btn btn-dark hvr-underline-reveal" href="{% url 'music_gcb:create_song' album.id %}">Add New Song</a>
-                    <h3><label>Add a New Song</label></h3>
-                    {% if error_message %}
-                    <p><strong>{{ error_message }}</strong></p>
-                    {% endif %}
-                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <input type="hidden" name="album" value="{{ album }}">
-                        {% include 'music_gcb/form_template.html' %}
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-dark">Submit</button>
+                        <a class="btn btn-dark hvr-underline-reveal" href="{% url 'music_gcb:detail' album.id %}">View All</a>
+                        <a class="btn btn-dark hvr-underline-reveal" href="{% url 'music_gcb:create_song' album.id %}">Add New Song</a>
+                        <h3><label>Add a New Song</label></h3>
+                        {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                        {% endif %}
+                        <form class="form-horizontal" role="form" action="{% url 'music_gcb:create_song' album.id %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="hidden" name="album" value="{{ album.id }}">
+                            <!--{% include 'music_gcb/form_template.html' %}-->
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Title</label><input type="text" >
+                                <label class="control-label col-sm-2">Audio Track</label><input type="file" >
+                                <label class="control-label col-sm-2">Favorite?</label><input type="checkbox">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-dark">Submit</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
