@@ -1,0 +1,40 @@
+{% extends 'photoblog/base.html' %}
+<!--{% block albums_active %}active{% endblock %}-->
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="album-font">
+            <div class="col-sm-12">
+                <h3>{{ user.username }}'s Albums</h3>
+            </div>
+            {% for album in albums %}
+            <div class="col-sm-4 col-md-3">
+                <div class="thumbnail">
+                    <a href="{% url 'photoblog:picture_detail' album.id %}">
+                        <img src="{{ album.album_logo.url }}" class="img-responsive">
+                    </a>
+                    <center>
+                        <h2>{{ album.album_title }}</h2>
+
+                        <!-- View Details -->
+                        <a href="{% url 'photoblog:create_picture' album.id %}" class="btn btn-dark btn-sm" role="button">Create pics</a>
+                        <a href="{% url 'photoblog:picture_detail' album.id %}" class="btn btn-dark btn-sm" role="button">View Details</a>
+
+                        <!-- Delete Album -->
+                        <form action="{% url 'photoblog:delete_album' album.id %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="album_id" value="{{ album.id }}" />
+                            <button type="submit" class="btn btn-dark btn-sm">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </form>
+                    </center>
+                </div>
+            </div>
+
+            {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

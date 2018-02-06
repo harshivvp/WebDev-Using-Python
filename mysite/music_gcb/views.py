@@ -1,10 +1,11 @@
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views import generic
+from django.utils.decorators import method_decorator
 
 from .forms import UserForm, SongForm
 from .models import Album, Song
@@ -33,6 +34,8 @@ class AlbumDetail(generic.DetailView):
     model = Album
     template_name = 'music_gcb/detail.html'
 
+
+    @method_decorator(login_required)
     def get_context_data(self, **kwargs):
         context = super(AlbumDetail, self).get_context_data(**kwargs)
         context['album_title'] = Album.objects.all()
@@ -52,7 +55,6 @@ class SongDelete(generic.DeleteView):
 
 
 class CreateAlbum(generic.CreateView):
-
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
     template_name = 'music_gcb/create_album.html'
@@ -83,7 +85,6 @@ class CreateSong(generic.CreateView):
             f.audio_file = post.audio_file
             f.is_favorite = post.is_favorite
             f.save()
-        # return self.render_to_response(context)
         return self.form_valid(form)
 
         # def post(self, request, *args, **kwargs):

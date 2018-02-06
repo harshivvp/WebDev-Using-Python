@@ -25,7 +25,7 @@ urlpatterns = [
     path('demsite/', include('demsite.urls')),
     path('music/', include('music.urls')),
     path('music_gcb/', include('music_gcb.urls')),
-
+    path('photoblog/',include('photoblog.urls',namespace="photoblog")),
 ]
 
 if settings.DEBUG:

@@ -41,11 +41,12 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'music_gcb',
     'music',
+    'photoblog',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.github'
+    'allauth.socialaccount.providers.github',
 ]
 
 MIDDLEWARE = [
